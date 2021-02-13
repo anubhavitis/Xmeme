@@ -7,45 +7,47 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 
-<body class="p-4 container mx-auto xl:w-3/4 xl:mx-auto bg-blue-50">
-  <div id="form" class="p-2  my-auto flex flex-col shadow-lg rounded-lg border-2 border-blue-100">
-    <div class="m-1 uppercase w-auto text-gray-500 text-2xl text-center font-semibold"> meme stream </div>
-    <div class="m-2 text-gray-900">
-      <form id="form" class="">
-        <div class=" flex flex-col">
-          <label class="p-1"> Meme Owner</label>
-          <input class="m-1 p-1 border-2 border-gray-400 p-1 rounded-lg" type="text"
-            placeholder="Enter your full name" />
+<body class="p-4 container mx-auto xl:w-3/4 xl:mx-auto bg-gray-300">
+  <div class="flex flex-col lg:flex-row justify-center mx-auto">
+
+    <div class="lg:w-1/2 lg:mr-5 my-auto">
+      <div class="p-2 m-2  flex flex-col">
+        <div class="m-1 uppercase w-auto text-gray-700 text-2xl text-center font-semibold"> meme stream </div>
+        <div class="m-2 text-gray-900">
+          <form id="form" class="">
+            <div class=" flex flex-col">
+              <label class="p-1"> Meme Owner</label>
+              <input id="name" class="m-1 p-1 border-2 border-gray-400 p-1 rounded-lg text-gray-700" type="text"
+                placeholder="Enter your full name" required/>
+            </div>
+            <div class=" flex flex-col">
+              <label class="p-1"> Caption</label>
+              <input id="caption" class="m-1 p-1 border-2 border-gray-400 p-1 rounded-lg text-gray-700" type="text"
+                placeholder="Be creative with caption" required/>
+            </div>
+            <div class=" flex flex-col">
+              <label class="p-1"> Meme URL</label>
+              <div class="flex flex-col ">
+                <input id="url" class=" m-1 p-1 border-2 border-gray-400 p-1 rounded-lg text-gray-700" type="text"
+                  placeholder="Enter URL of the meme here" required/>
+                <button class="p-1 mt-3 mx-1 md:m-1 w-auto font-semibold bg-blue-500 
+              text-gray-50 rounded-lg hover:bg-blue-700 hover:text-white uppercase" type="submit"> Submit meme</button>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class=" flex flex-col">
-          <label class="p-1"> Caption</label>
-          <input class="m-1 p-1 border-2 border-gray-400 p-1 rounded-lg" type="text"
-            placeholder="Be creative with caption" />
-        </div>
-        <div class=" flex flex-col">
-          <label class="p-1"> Meme URL</label>
-          <div class="flex flex-col md:flex-row">
-            <input class=" m-1 p-1 border-2 border-gray-400 p-1 md:w-3/4 rounded-lg " type="text"
-              placeholder="Enter URL of the meme here" />
-            <button
-              class="p-1 my-3 mx-1 md:m-1 w-auto font-semibold md:w-1/4 bg-blue-500 text-gray-50 rounded-lg hover:bg-blue-700 hover:text-white uppercase"
-              type="submit"> Submit meme</button>
-          </div>
-        </div>
-      </form>
+      </div>
+    </div>
+
+    <div class="overflow-y-scroll	h-screen m-2 lg:w-1/2 bg-gray-400 rounded-lg p-2">
+      <div id="cards" class="p-1">
+
+      </div>
     </div>
   </div>
 
-  <div
-    class="p-3 h-full my-10 ring-4 rounded-lg ring-blue-100 grid gap-3 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 bg-gray-50">
-    <div class="shadow-lg pl-2 ">
-      <div class="p-2 mt-0.5 h-1/6 bg-gray-800 flex flex-col justify-around">
-        <h4 class="text-gray-400 text-md uppercase font-semibold"> Anubhav Singhal</h4>
-        <p class="text-gray-200 ">Anubhav Singhal</p>
-      </div>
-      <img class="h-5/6 w-full rounded-b-lg mx-auto" src="https://cutt.ly/JkcDolp" \>
-    </div>
-  </div>
+  <script type="module" src="./js/main.js"> </script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 </html>
