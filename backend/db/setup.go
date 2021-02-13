@@ -36,6 +36,7 @@ func ResetTable() error {
 	if _, err := Mydb.Exec("DROP TABLE memes"); err != nil {
 		return err
 	}
+	CreateMemeTable(Mydb)
 	return nil
 }
 

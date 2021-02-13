@@ -1,5 +1,5 @@
-var url= "https://xmeme07.herokuapp.com/"
-// var url= "http://localhost:8080/"
+var URL = "https://xmeme07.herokuapp.com/";
+// var URL= "http://localhost:8080/"
 
 export function addMeme(e) {
   e.preventDefault();
@@ -8,6 +8,7 @@ export function addMeme(e) {
   var caption = document.getElementById("caption").value;
   var url = document.getElementById("url").value;
 
+  console.log(name + caption + url);
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -23,14 +24,13 @@ export function addMeme(e) {
     body: raw,
     redirect: "follow",
   };
-
-  fetch(url+"memes", requestOptions)
+  
+  fetch(URL+"memes", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       swal.fire("Hurray!", "id=" + result.id.toString(), "success");
       loadMeme();
     })
-    .catch((error) => console.log("error", error));
 }
 
 export function loadMeme() {
@@ -39,11 +39,12 @@ export function loadMeme() {
     redirect: "follow",
   };
 
-  fetch(url+"memes", requestOptions)
+  fetch(URL + "memes", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       var cards = "";
-      for (var i = 0; i < result.result.length; i += 1) {
+
+      for (var i = 0; result.result!=null && i < result.result.length; i += 1) {
         var ele = result.result[i];
         var temp = `<div class="m-4 shadow-lg max-w-lg mx-auto">
                         <div class="p-2 mt-0.5 bg-gray-50 flex flex-col justify-around rounded-t-lg">
@@ -61,5 +62,4 @@ export function loadMeme() {
 
       document.getElementById("cards").innerHTML = cards;
     })
-    .catch((error) => console.log("error", error));
 }

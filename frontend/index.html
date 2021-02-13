@@ -7,29 +7,30 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
 </head>
 
-<body class="p-4 container mx-auto xl:w-3/4 xl:mx-auto bg-gray-300">
+<body class="bg-gray-300 overflow-hidden">
+
   <div class="flex flex-col lg:flex-row justify-center mx-auto">
 
-    <div class="lg:w-1/2 lg:mr-5 my-auto">
-      <div class="p-2 m-2  flex flex-col">
+    <div class="lg:w-3/5 lg:mr-5 my-auto">
+      <div class="p-2 m-2  flex flex-col lg:w-2/3 mx-auto">
         <div class="m-1 uppercase w-auto text-gray-700 text-2xl text-center font-semibold"> meme stream </div>
         <div class="m-2 text-gray-900">
-          <form id="form" class="">
+          <form id="form" class=" lg:text-xl">
             <div class=" flex flex-col">
               <label class="p-1"> Meme Owner</label>
               <input id="name" class="m-1 p-1 border-2 border-gray-400 p-1 rounded-lg text-gray-700" type="text"
-                placeholder="Enter your full name" required/>
+                placeholder="Enter your full name" required />
             </div>
             <div class=" flex flex-col">
               <label class="p-1"> Caption</label>
               <input id="caption" class="m-1 p-1 border-2 border-gray-400 p-1 rounded-lg text-gray-700" type="text"
-                placeholder="Be creative with caption" required/>
+                placeholder="Be creative with caption" required />
             </div>
             <div class=" flex flex-col">
               <label class="p-1"> Meme URL</label>
               <div class="flex flex-col ">
                 <input id="url" class=" m-1 p-1 border-2 border-gray-400 p-1 rounded-lg text-gray-700" type="text"
-                  placeholder="Enter URL of the meme here" required/>
+                  placeholder="Enter URL of the meme here" required />
                 <button class="p-1 mt-3 mx-1 md:m-1 w-auto font-semibold bg-blue-500 
               text-gray-50 rounded-lg hover:bg-blue-700 hover:text-white uppercase" type="submit"> Submit meme</button>
               </div>
@@ -38,12 +39,13 @@
         </div>
       </div>
     </div>
-
-    <div class="overflow-y-scroll	h-screen m-2 lg:w-1/2 bg-gray-400 rounded-lg p-2">
+    
+    <div class="overflow-y-scroll h-screen lg:w-2/5 bg-gray-400 p-2">
       <div id="cards" class="p-1">
 
       </div>
     </div>
+
   </div>
 
   <script type="module" src="./js/main.js"> </script>

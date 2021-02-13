@@ -5,5 +5,6 @@ window.onload = function () {
 };
 
 document.getElementById("form").onsubmit = function (e) {
+  console.log("form submitted")
   addMeme(e);
 };
