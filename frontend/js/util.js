@@ -28,7 +28,7 @@ export function addMeme(e) {
   fetch(URL+"memes", requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      swal.fire("Hurray!", "id=" + result.id.toString(), "success");
+      swal.fire("Congrats"+name, "You meme is succesfully added to our database", "success");
       loadMeme();
     })
 }
