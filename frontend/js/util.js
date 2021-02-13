@@ -1,3 +1,6 @@
+var url= "https://xmeme07.herokuapp.com/"
+// var url= "http://localhost:8080/"
+
 export function addMeme(e) {
   e.preventDefault();
 
@@ -21,7 +24,7 @@ export function addMeme(e) {
     redirect: "follow",
   };
 
-  fetch("http://localhost:8080/memes", requestOptions)
+  fetch(url+"memes", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       swal.fire("Hurray!", "id=" + result.id.toString(), "success");
@@ -36,7 +39,7 @@ export function loadMeme() {
     redirect: "follow",
   };
 
-  fetch("http://localhost:8080/memes", requestOptions)
+  fetch(url+"memes", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       var cards = "";
