@@ -78,10 +78,9 @@ export function loadMeme() {
           </div>
           <img class="max-h-96 w-full rounded-b-lg mx-auto" src="${ele.url}" \>
         </div>`;
-        cards = temp + cards;
+        cards +=temp;
       }
 
       document.getElementById("cards").innerHTML = cards;
     });
 }
-
