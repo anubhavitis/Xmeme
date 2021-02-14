@@ -93,7 +93,7 @@ func AddMeme(obj util.Meme) (int, error) {
 func ShowAllMeme() ([]util.Meme, error) {
 	var res []util.Meme
 
-	q := `Select * from memes`
+	q := `Select * from memes order by id desc limit 100;`
 	rows, e := Mydb.Query(q)
 
 	if e != nil {
