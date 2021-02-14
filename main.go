@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/anubhavitis/Xmeme/backend/db"
 	ends "github.com/anubhavitis/Xmeme/backend/endpoints"
@@ -24,5 +25,12 @@ func main() {
 	rou.GET("/memes", ends.AllMemes)
 	rou.DELETE("/memes/:id", ends.DelMeme)
 	rou.PATCH("/memes/:id", ends.EditMeme)
-	rou.Run()
+
+	// rou.Run()
+	port := os.Getenv("PORT")
+	if port == "" {
+		rou.Run(":8081")
+	} else {
+		rou.Run()
+	}
 }
