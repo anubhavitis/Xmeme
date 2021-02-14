@@ -2,6 +2,7 @@ package ends
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/anubhavitis/Xmeme/backend/db"
 	"github.com/anubhavitis/Xmeme/backend/util"
@@ -31,12 +32,43 @@ func AllMemes(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"result": memes})
 }
 
-//DellAll handler
-func DellAll(c *gin.Context) {
-	if e := db.ResetTable(); e != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": e})
+//DelMeme handler
+func DelMeme(c *gin.Context) {
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		c.Writer.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	c.JSON(http.StatusAccepted, gin.H{"success": true})
+
+	if e := db.RemRec(id); e != nil {
+		c.Writer.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	c.Writer.WriteHeader(http.StatusOK)
 	return
+}
+
+//EditMeme handler
+func EditMeme(c *gin.Context) {
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		c.Writer.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	var body struct {
+		URL     string `json:"url"`
+		Caption string `json:"caption"`
+	}
+	c.BindJSON(&body)
+
+	if e := db.EditRec(id, body.URL, body.Caption); e != nil {
+		c.Writer.WriteHeader(http.StatusConflict)
+		return
+	}
+
+	c.Writer.WriteHeader(http.StatusAccepted)
+	return
+
 }

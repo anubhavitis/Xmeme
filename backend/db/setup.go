@@ -31,12 +31,14 @@ func InitDb() (*sql.DB, error) {
 	return dab, nil
 }
 
-//ResetTable function
-func ResetTable() error {
-	if _, err := Mydb.Exec("DROP TABLE memes"); err != nil {
+//RemRec function
+func RemRec(id int) error {
+
+	q := `DELETE FROM memes WHERE id=?;`
+	if _, err := Mydb.Exec(q, id); err != nil {
 		return err
 	}
-	CreateMemeTable(Mydb)
+
 	return nil
 }
 
@@ -109,4 +111,32 @@ func ShowAllMeme() ([]util.Meme, error) {
 
 	return res, nil
 
+}
+
+//EditRec function
+func EditRec(id int, url string, cap string) error {
+	qURL := `
+	UPDATE memes
+	SET url=?
+	where id=?
+	`
+	qCaption := `
+	UPDATE memes
+	SET caption=?
+	where id=?
+	`
+
+	if url != "" {
+		if _, e := Mydb.Exec(qURL, url, id); e != nil {
+			return e
+		}
+	}
+
+	if cap != "" {
+		if _, e := Mydb.Exec(qCaption, cap, id); e != nil {
+			return e
+		}
+	}
+
+	return nil
 }

@@ -1,6 +1,9 @@
 import { loadMeme, addMeme } from "./util.js";
 
+
+
 window.onload = function () {
+
   loadMeme();
 };
 
