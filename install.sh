@@ -1,11 +1,7 @@
 set -e -x
 
 # Install go toolchain
-tar -C /usr/local -xzf go1.15.8.linux-amd64.tar.gz
+sudo wget -c https://golang.org/dl/go1.15.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.15.8.linux-amd64.tar.gz
 
 export PATH=$PATH:/usr/local/go/bin
-
-# GO_BINARY="/usr/bin/go"
-# GOROOT= /usr/local/go
-# GOPATH= $HOME/go
-# PATH= $GOPATH/bin:$GOROOT/bin:$PATH
